@@ -1,0 +1,64 @@
+<html>
+  <head>
+    <title> Calculadora com JavaScript </title>
+    <link rel="stylesheet" type="text/css" href="calculadora.css">
+    <script type="text/javascript">
+      function calcular(){
+        var primeiro = parseFloat(document.getElementById('primeiro_numero').value);
+        var segundo = parseFloat(document.getElementById('segundo_numero').value);
+
+        var operador = document.getElementById('operador').value;
+
+        if(operador=='+'){
+          var resultado = primeiro+segundo;
+        }
+
+        if(operador=='-'){
+          var resultado = primeiro-segundo;
+        }
+
+        if(operador=='*'){
+          var resultado = primeiro*segundo;
+        }
+
+        if(operador=='/'){
+          var resultado = primeiro / segundo;
+        }
+
+        document.getElementById('resultado').innerHTML = resultado;
+      }
+    </script>
+  </head>
+
+  <body>
+    <fieldset>
+      <legend> Calculadora: </legend>
+
+      <div>
+        <label for "primeiro numero"> Primeiro N&uacute;mero: </label>
+        <input id="primeiro_numero" type="text" name="primeiro_numero" value="Valor?"/>
+      </div>
+
+      <div>
+        <label for "operador"> Operador: </label>
+        <select name="operador" id="operador">
+          <option value="+"> + </option>
+          <option value="-"> - </option>
+          <option value="*"> * </option>
+          <option value="/"> / </option>
+        </select>
+      </div>
+
+      <div>
+        <label for "segundo numero"> Segundo N&uacute;mero: </label>
+        <input id="segundo_numero" type="select" name="segundo_numero" value="Valor?"/>
+      </div>
+
+
+      <p> Resultado:  <span id="resultado"> </span> </p>
+
+      <button type"button" onclick="calcular()"> Calcular </button>
+
+    </fieldset>
+  </body>
+</html>

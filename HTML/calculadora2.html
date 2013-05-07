@@ -1,0 +1,103 @@
+<html>
+  <head>
+    <title> Calculadora 2.0 </title>
+    <link rel="stylesheet" type="text/css" href="calculadora2.css">
+    <script type="text/javascript">
+
+      function calcula(){
+        var mostrador = document.getElementById('mostrador');
+        var resultado=null;
+        var operador=null;
+        numerosEOperacoes = mostrador.value.split(' ');
+        for( x in numerosEOperacoes){
+          parsed_x=parseFloat(numerosEOperacoes[x]);
+
+          if(resultado==null)
+            resultado=parsed_x;
+
+          else{
+            if(isNaN(parsed_x))
+              operador=numerosEOperacoes[x] ;
+
+            else{
+              if(operador=='+'){
+                resultado += parsed_x;
+              }
+
+              if(operador=='-'){
+                resultado -= parsed_x;
+              }
+
+              if(operador=='*'){
+                resultado *= parsed_x;
+              }
+
+              if(operador=='/'){
+                resultado /= parsed_x;
+              }
+
+            }
+          }
+        }
+        mostrador.value=resultado;
+      }
+          
+      function insereSimbolo(simbolo){
+        var mostrador = document.getElementById('mostrador');
+        if(mostrador.value == '')
+          mostrador.value = '0' + simbolo
+        else
+          mostrador.value += simbolo
+      }
+
+      function insereNumero(numero){
+        var mostrador = document.getElementById('mostrador');
+        if(mostrador.value == '0' && numero == '0')
+          return;
+        else{
+          if(mostrador.value == '0')
+            mostrador.value = numero;
+          else
+            mostrador.value += numero;
+        }
+      }
+
+      function limpa(){
+        var mostrador = document.getElementById('mostrador');
+        mostrador.value = '';
+      }
+
+    </script>
+  </head>
+
+  <body>
+    <fieldset>
+      <input id='mostrador' type='text' maxlength='20' />
+
+      <div class='nova_linha' id='num7' onclick='insereNumero(7)'> 7 </div>
+      <div id='num8' onclick='insereNumero(8)'> 8 </div>
+      <div id='num9' onclick='insereNumero(9)'> 9 </div>
+
+      <div id='divide' onclick="insereSimbolo(' / ')"> / </div>
+
+      <div class='nova_linha' id='num4' onclick='insereNumero(4)'> 4 </div>
+      <div id='num5' onclick='insereNumero(5)'> 5 </div>
+      <div id='num6' onclick='insereNumero(6)'> 6 </div>
+
+      <div id='multiplica' onclick="insereSimbolo(' * ')"> * </div>
+
+      <div class='nova_linha' id='num1' onclick='insereNumero(1)'> 1 </div>
+      <div id='num2' onclick='insereNumero(2)'> 2 </div>
+      <div id='num3' onclick='insereNumero(3)'> 3 </div>
+
+      <div id='subtrai' onclick="insereSimbolo(' - ')"> - </div>
+
+      <div class='nova_linha' id='num0' onclick='insereNumero(0)'> 0 </div>
+      <div id='virgula' onclick="insereNumero('.')"> , </div>
+      <div id='igual' onclick='calcula()'> = </div>
+      <div id='soma' onclick="insereSimbolo(' + ')"> + </div>
+
+      <div id='limpa' onclick='limpa()'> LIMPAR </div>
+    </fieldset>
+  </body>
+</html>

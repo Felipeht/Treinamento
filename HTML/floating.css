@@ -1,0 +1,39 @@
+.floaters {border-width: 2px;
+           border-radius: 10px;
+           border-style: solid;
+           border-color: rgb(100,100,100);
+           background-color: rgba(255,255,255,0.3);
+           width: 200px;
+           height: 200px;
+           margin: 100px;
+           float: left;}
+
+
+h1 {text-align: center;
+    padding-top: 50px;
+    padding-bottom: 20px;}
+
+body {background-color: rgb(255,165,0)}
+
+li {padding-top: 15px;}
+
+ul {text-align: center;
+    padding: 5px;}
+
+
+a:visited,a {color:black;
+             text-decoration: none;}
+
+a:active,a:hover {color:black; 
+                  text-decoration: none;}
+
+.link {background-color: rgba(0,0,0,0.3);
+       display: inline;
+       padding: 5px;
+       border-right-style: solid; 
+       border-width: 3px;
+       border-color: rgb(255,165,0);}
+
+#linksfinais {clear: both;
+              margin-top: 0px;
+              padding: 0px;}

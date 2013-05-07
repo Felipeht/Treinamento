@@ -1,0 +1,29 @@
+h1 {color: red;}
+div{padding:20px;}
+
+body {background-color: rgb(240,240,240);}
+
+li {margin-top: 10px; margin-bottom: 10px;}
+
+.rb {margin-right: 5px; }
+
+#log {float:right; 
+  background-color: white ;
+  border-style: solid; 
+  border-width: 1px; 
+  border-radius: 10px; 
+  padding: 20px;}
+
+#copyright {border-style: solid;text-align: center; 
+  font-style: italic; font-family: "Arial";}
+
+#barra {float: right;}
+
+table {background-color: DarkCyan;
+       border-collapse:collapse;}
+
+td, th {padding:5px; border: 1px solid black;}
+
+a:visited,a {color:black; text-decoration: none;}
+
+a:active,a:hover {color:blue; text-decoration: none;}

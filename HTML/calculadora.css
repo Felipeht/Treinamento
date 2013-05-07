@@ -1,0 +1,20 @@
+label {float: left;
+       clear: left;
+       margin-top: 15px;}
+
+div{float: left;
+    clear: left;
+    width: 250px}
+
+input, select {float: right;
+       margin-top: 12px;
+       padding: 0px;
+       width: 100px}
+
+button {clear: left;}
+
+p {clear: left;
+   padding-top: 20px;}
+
+fieldset {width:260px;}
+
