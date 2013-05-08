@@ -1,0 +1,159 @@
+<html>
+  <head>
+    <title> Calculadora de Incerteza </title>
+    <link rel="stylesheet" type="text/css" href="calculadoraDeIncerteza.css">
+  </head>
+
+  <body>
+    <fieldset>
+      <div class="nova_linha">
+        <label for='a'> a: </label>
+        <input id="js_a" type="text" value="a..." onmousedown="apaga_incial('js_a')" />
+        <div class="clearfix">
+          <p class="erro_validacao" id="js_erroA"></p>
+        </div>
+      </div>
+
+      <div class="float_left">
+        <label for='sigma_a'> &sigma;: </label>
+        <input id="js_sigma_a" type="text" value="incerteza..." onmousedown="apaga_incial('js_sigma_a')" />
+        <div class="clearfix">
+          <p class="erro_validacao" id="js_erroSigmaA"></p>
+        </div>
+      </div>
+
+      <div class="float_left">
+        <select id="operacao" >
+        
+          <option value="soma" > a + b </option>
+          <option value="subtracao" > a - b </option>
+          <option value="multiplicacao" > a * b </option>
+          <option value="divisao" > a / b </option>
+          <option value=" " > placeholder </option>
+
+        </select>
+      </div>
+
+      <div class="nova_linha" >
+        <label for='b'> b: </label>
+        <input id="js_b" type="text" value="b..." onmousedown="apaga_incial('js_b')" />
+        <div class="clearfix">
+          <p class="erro_validacao" id="js_erroB"></p>
+        </div>
+      </div>
+
+      <div class="float_left">
+        <label for='sigma_b'> &sigma;: </label>
+        <input id="js_sigma_b" type="text" value="incerteza..." onmousedown="apaga_incial('js_sigma_b')"/>
+        <div class="clearfix">
+          <p class="erro_validacao" id="js_erroSigmaB"></p>
+        </div>
+      </div>
+
+      <div class="float_left">
+        <button type"button" onclick="calcular()"> Calcular </button>
+      </div>
+
+       <div class="nova_linha">
+        <label for='resultado'> R: </label>
+        <input id="js_resultado" type="text" disabled value="resultado" />
+        <div class="clearfix">
+          <p class="erro_validacao"></p>
+        </div>
+      </div>
+
+      <div class="float_left">
+        <label for='sigma_resultado'> &sigma;: </label>
+        <input id="js_sigma_resultado" type="text" disabled value="incerteza do resultado" />
+        <div class="clearfix">
+          <p class="erro_validacao"></p>
+        </div>
+      </div>
+
+      <div class="float_left">
+        <button type"button" onclick="limpa()"> Limpar </button>
+      </div>
+ 
+
+    </fieldset>
+  </body>
+
+  <script type="text/javascript">
+    function limpa(){
+      document.getElementById("js_a").value="a...";
+      document.getElementById("js_b").value="b...";
+      document.getElementById("js_sigma_a").value="incerteza...";
+      document.getElementById("js_sigma_b").value="incerteza...";
+      document.getElementById("js_resultado").value="resultado";
+      document.getElementById("js_sigma_resultado").value="incerteza do resultado";
+    }
+
+    function apaga_incial(id){
+      if ( estaComValorIncial(id) )     
+      document.getElementById(id).value="";
+    }
+
+    function estaComValorIncial(id){
+      if(id=="js_a")
+        return document.getElementById(id).value=="a...";
+      if(id=="js_b")
+        return document.getElementById(id).value=="b...";
+      if(id=="js_sigma_a")
+        return document.getElementById(id).value=="incerteza...";
+      if(id=="js_sigma_b")
+        return document.getElementById(id).value=="incerteza...";
+    }
+
+    function calcular(){
+      validaTodos();
+    }
+
+    function validaTodos(){
+      var a = document.getElementById("js_a");
+      var b = document.getElementById("js_b");
+      var sigmaA = document.getElementById("js_sigma_a");
+      var sigmaB = document.getElementById("js_sigma_b");
+      if (a.value=="")
+        msgErroValidacao("js_erroA","Campo vazio")
+      else
+        if(isNaN(parseFloat(a.value)))
+          msgErroValidacao("js_erroA","Preencha com um numero");
+        else
+          msgEntradaCorreta("js_erroA")
+
+      if (b.value=="")
+        msgErroValidacao("js_erroB","Campo vazio")
+      else
+        if(isNaN(parseFloat(b.value)))
+          msgErroValidacao("js_erroB","Preencha com um numero");
+        else
+          msgEntradaCorreta("js_erroB")
+
+      if (sigmaA.value=="")
+        msgErroValidacao("js_erroSigmaA","Campo vazio");
+      else 
+        if(isNaN(parseFloat(sigmaA.value)))
+          msgErroValidacao("js_erroSigmaA","Preencha com um numero");
+        else
+          msgEntradaCorreta("js_erroSigmaA")
+
+      if (sigmaB.value=="")
+        msgErroValidacao("js_erroSigmaB","Campo vazio");
+      else 
+        if(isNaN(parseFloat(sigmaB.value)))
+          msgErroValidacao("js_erroSigmaB","Preencha com um numero");
+        else
+          msgEntradaCorreta("js_erroSigmaB")
+    }
+
+    function msgErroValidacao(idMsgErro,msgErro){
+      document.getElementById(idMsgErro).style.color="red";
+      document.getElementById(idMsgErro).innerHTML=msgErro;
+    }
+
+    function msgEntradaCorreta(idMsgCorreta){
+      document.getElementById(idMsgCorreta).style.color = "green";
+      document.getElementById(idMsgCorreta).innerHTML = "Correto";
+    }
+  </script>
+</html>

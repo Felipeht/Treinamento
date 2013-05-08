@@ -1,0 +1,43 @@
+body {
+  font-family: "Courier New";
+}
+
+div {
+  overflow: auto;
+  margin-left: 10px;
+}
+
+fieldset {
+  padding: 0px;
+  width: 670px;
+}
+
+select {
+  width: 80px;
+}
+
+label {
+  margin-left: 5px;
+}
+
+.erro_validacao {
+  min-height: 20px;
+  margin-left: 5px;
+  margin-top: 5px;
+  color: red;
+}
+
+.nova_linha {
+  clear:left;
+  float: left;
+  margin-top: 10px;
+}
+
+.float_left {
+  float: left;
+  margin-top: 10px;
+}
+
+.clearfix {
+  clear: both;
+}
