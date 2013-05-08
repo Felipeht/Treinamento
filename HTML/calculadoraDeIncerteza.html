@@ -29,7 +29,6 @@
           <option value="subtracao" > a - b </option>
           <option value="multiplicacao" > a * b </option>
           <option value="divisao" > a / b </option>
-          <option value=" " > placeholder </option>
 
         </select>
       </div>
@@ -56,7 +55,7 @@
 
        <div class="nova_linha">
         <label for='resultado'> R: </label>
-        <input id="js_resultado" type="text" disabled value="resultado" />
+        <input id="js_resultado" class="nao_mexe" type="text" readonly value="resultado" />
         <div class="clearfix">
           <p class="erro_validacao"></p>
         </div>
@@ -64,7 +63,7 @@
 
       <div class="float_left">
         <label for='sigma_resultado'> &sigma;: </label>
-        <input id="js_sigma_resultado" type="text" disabled value="incerteza do resultado" />
+        <input id="js_sigma_resultado" class="nao_mexe" type="text" readonly value="incerteza do resultado" />
         <div class="clearfix">
           <p class="erro_validacao"></p>
         </div>
@@ -73,7 +72,6 @@
       <div class="float_left">
         <button type"button" onclick="limpa()"> Limpar </button>
       </div>
- 
 
     </fieldset>
   </body>
@@ -105,7 +103,41 @@
     }
 
     function calcular(){
+      var operacao = document.getElementById('operacao').value;
+      var a = parseFloat (document.getElementById("js_a").value);
+      var b = parseFloat (document.getElementById("js_b").value);
+      var sigmaA = parseFloat (document.getElementById("js_sigma_a").value);
+      var sigmaB = parseFloat (document.getElementById("js_sigma_b").value);
+
+      var resultado = "ERRO";
+      var sigma_resultado = "ERRO"
+
       validaTodos();
+
+      if(operacao == 'soma'){
+        resultado = a + b;
+        sigma_resultado = Math.sqrt(sigmaA*sigmaA + sigmaB*sigmaB);
+      }
+
+      if(operacao == 'subtracao'){
+        resultado = a - b;
+        sigma_resultado = Math.sqrt(sigmaA*sigmaA + sigmaB*sigmaB);
+      }
+
+      if(operacao == 'multiplicacao'){
+        resultado = (a * b);
+        sigma_resultado = resultado*Math.sqrt(Math.pow(sigmaA/a,2) + Math.pow(sigmaB/b,2));
+      }
+
+      if(operacao == 'divisao'){
+        resultado = (a / b);
+        sigma_resultado = resultado*Math.sqrt(pow(sigmaA/a,2) + pow(sigmaB/b,2));
+      }
+
+
+      document.getElementById("js_resultado").value= resultado ;
+      document.getElementById("js_sigma_resultado").value=sigma_resultado;
+
     }
 
     function validaTodos(){

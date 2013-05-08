@@ -24,7 +24,6 @@ label {
   min-height: 20px;
   margin-left: 5px;
   margin-top: 5px;
-  color: red;
 }
 
 .nova_linha {
@@ -41,3 +40,5 @@ label {
 .clearfix {
   clear: both;
 }
+
+

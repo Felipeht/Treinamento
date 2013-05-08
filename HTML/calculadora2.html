@@ -2,13 +2,48 @@
   <head>
     <title> Calculadora 2.0 </title>
     <link rel="stylesheet" type="text/css" href="calculadora2.css">
-    <script type="text/javascript">
+      <script src="jquery-1.9.1.js" ></script>
+  </head>
+
+  <body>
+    <fieldset>
+      <input id='mostrador' type='text' maxlength='20' />
+
+      <div class='nova_linha botao' id='num7'>7</div>
+      <div id='num8' class="botao">8</div>
+      <div id='num9' class="botao">9</div>
+
+      <div id='divide' class="botao">/</div>
+
+      <div class='nova_linha botao' id='num4'>4</div>
+      <div id='num5' class="botao">5</div>
+      <div id='num6' class="botao">6</div>
+
+      <div id='multiplica' class="botao">*</div>
+
+      <div class='nova_linha botao' id='num1'>1 </div>
+      <div id='num2' class="botao">2</div>
+      <div id='num3' class="botao">3</div>
+
+      <div id='subtrai' class="botao">-</div>
+
+      <div class='nova_linha botao' id='num0'>0</div>
+      <div id='virgula' class="botao">.</div>
+      <div id='igual' class="botao" onclick='calcula()'>=</div>
+      <div id='soma' class="botao">+</div>
+
+      <div id='limpa' class="botao">LIMPAR</div>
+    </fieldset>
+  </body>
+
+
+
+  <script type="text/javascript">
 
       function calcula(){
-        var mostrador = document.getElementById('mostrador');
         var resultado=null;
         var operador=null;
-        numerosEOperacoes = mostrador.value.split(' ');
+        var numerosEOperacoes = $('#mostrador').val().split(' ');
         for( x in numerosEOperacoes){
           parsed_x=parseFloat(numerosEOperacoes[x]);
 
@@ -17,87 +52,67 @@
 
           else{
             if(isNaN(parsed_x))
-              operador=numerosEOperacoes[x] ;
+              operador=numerosEOperacoes[x];
 
-            else{
-              if(operador=='+'){
-                resultado += parsed_x;
-              }
-
-              if(operador=='-'){
-                resultado -= parsed_x;
-              }
-
-              if(operador=='*'){
-                resultado *= parsed_x;
-              }
-
-              if(operador=='/'){
-                resultado /= parsed_x;
-              }
-
-            }
+            else
+              resultado = realizaOperacao(resultado, parsed_x, operador);
           }
         }
-        mostrador.value=resultado;
+        $('#mostrador').val(resultado);
+      }
+
+      function realizaOperacao(resultado, parsed_x, operador){
+        if(operador=='+')
+          resultado += parsed_x;
+
+        if(operador=='-')
+          resultado -= parsed_x;
+              
+        if(operador=='*')
+          resultado *= parsed_x;
+              
+        if(operador=='/')
+          resultado /= parsed_x;
+
+        return resultado;
       }
           
       function insereSimbolo(simbolo){
-        var mostrador = document.getElementById('mostrador');
-        if(mostrador.value == '')
-          mostrador.value = '0' + simbolo
+        if($('#mostrador').val() == '')
+          $('#mostrador').val('0 ' + simbolo + ' ');
         else
-          mostrador.value += simbolo
+          $('#mostrador').val($('#mostrador').val()+ ' ' + simbolo + ' ');
       }
 
       function insereNumero(numero){
-        var mostrador = document.getElementById('mostrador');
-        if(mostrador.value == '0' && numero == '0')
+        if($('#mostrador').val() == '0' && numero == '0')
           return;
         else{
-          if(mostrador.value == '0')
-            mostrador.value = numero;
+          if($('#mostrador').val() == '0')
+            $('#mostrador').val(numero);
           else
-            mostrador.value += numero;
+            $('#mostrador').val($('#mostrador').val() + numero);
         }
       }
 
       function limpa(){
-        var mostrador = document.getElementById('mostrador');
-        mostrador.value = '';
+        $('#mostrador').val('');
       }
 
+      function eh_simbolo(string){
+        return(string=='+' || string=='-' ||string=='*' ||string=='/');
+      }
+
+      $(".botao").click(function(){
+        if( $(this).html() == '=')
+          calcula();
+        else if ($(this).html() == 'LIMPAR')
+          limpa();
+        else if(eh_simbolo($(this).html()))
+          insereSimbolo($(this).html());
+        else
+          insereNumero($(this).html());
+      });
+
     </script>
-  </head>
-
-  <body>
-    <fieldset>
-      <input id='mostrador' type='text' maxlength='20' />
-
-      <div class='nova_linha' id='num7' onclick='insereNumero(7)'> 7 </div>
-      <div id='num8' onclick='insereNumero(8)'> 8 </div>
-      <div id='num9' onclick='insereNumero(9)'> 9 </div>
-
-      <div id='divide' onclick="insereSimbolo(' / ')"> / </div>
-
-      <div class='nova_linha' id='num4' onclick='insereNumero(4)'> 4 </div>
-      <div id='num5' onclick='insereNumero(5)'> 5 </div>
-      <div id='num6' onclick='insereNumero(6)'> 6 </div>
-
-      <div id='multiplica' onclick="insereSimbolo(' * ')"> * </div>
-
-      <div class='nova_linha' id='num1' onclick='insereNumero(1)'> 1 </div>
-      <div id='num2' onclick='insereNumero(2)'> 2 </div>
-      <div id='num3' onclick='insereNumero(3)'> 3 </div>
-
-      <div id='subtrai' onclick="insereSimbolo(' - ')"> - </div>
-
-      <div class='nova_linha' id='num0' onclick='insereNumero(0)'> 0 </div>
-      <div id='virgula' onclick="insereNumero('.')"> , </div>
-      <div id='igual' onclick='calcula()'> = </div>
-      <div id='soma' onclick="insereSimbolo(' + ')"> + </div>
-
-      <div id='limpa' onclick='limpa()'> LIMPAR </div>
-    </fieldset>
-  </body>
 </html>
