@@ -1,0 +1,40 @@
+.bloco_ameacador {
+  background-color: red;
+  position: relative;
+  height: 40px;
+  width: 40px;
+}
+
+.posicao_horizontal1 {
+  left: 100px;
+}
+
+.posicao_horizontal2 {
+  left: 200px;
+}
+
+.posicao_horizontal3 {
+  left: 300px;
+}
+
+.posicao_horizontal4 {
+  left: 400px;
+}
+
+.posicao_horizontal5 {
+  left: 500px;
+}
+
+
+.posicao {
+  height: 50px;
+  width: 1000px;
+  margin-top: 50px;
+}
+
+.bola {
+  height: 40px;
+  width: 40px;
+  border-radius: 40px;
+  background-color: black;
+}
