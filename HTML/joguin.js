@@ -1,6 +1,18 @@
 var dataInicial = new Date();
 var INTERVALO = 2000;
 
+$(window).keydown(function(event){
+  if(event.which == 39)
+    $("#js_nave").css('left', "+=5px");
+
+  if(event.which == 37)
+    $("#js_nave").css('left', "-=5px");
+
+  if(event.which == 32){
+    if($("#js_nave").css('left') - $("js_posicao1").css('left') < '40px' ) // parse somehow
+  }
+});
+
 
 
 var blocoSpawn = setInterval(function(){
