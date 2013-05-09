@@ -1,0 +1,33 @@
+div {
+  background-color: red;
+  float: left;
+  margin: 10px;
+  color: red;
+}
+
+button {
+  float: left;
+}
+
+.blue {
+  background-color: blue;
+}
+
+.bloco_grande {
+  width: 40px;
+  height: 40px;
+}
+
+.bloco_pequeno {
+  width: 10px;
+  height: 10px;
+  overflow: hidden;
+}
+
+.clear_left {
+  clear: left;
+}
+
+.clear_right {
+  clear: right;
+}

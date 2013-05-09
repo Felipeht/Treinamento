@@ -1,0 +1,44 @@
+<html>
+  <head>
+    <title> Blocos </title>
+    <script src="jquery-1.9.1.js" ></script>
+    <link rel="stylesheet" type="text/css" href="blocos.css">
+  </head>
+
+  <body>
+    <button type="button" id="js_criaBlocoPequeno" > Cria Bloco Pequeno </button>
+    <button type="button" id="js_criaBlocoGrande" > Cria Bloco Grande </button>
+    <button type="button" id="js_mataUltimoBloco"> Mata Ultimo Bloco </button>
+    <button type="button" id="js_mataTudo"> Mata Todos os Blocos </button>
+
+    <div class="clear_left"></div>
+
+  </body>
+
+  <script type="text/javascript">
+
+    function toggle_class(){
+      $('js_marcado_para_morrer').each(function(){
+        $(this).toggleClass("blue");
+        alert("oi");
+      });
+    }
+
+    $('#js_criaBlocoPequeno').click(function(){
+      $(this).nextAll().last().after( '<div class="bloco_pequeno js_marcado_para_morrer blue" onclick="toggle_class()"> .</div> ');
+    });
+
+    $('#js_criaBlocoGrande').click(function(){
+      $(this).nextAll().last().after(' <div class="bloco_grande js_marcado_para_morrer blue" onclick="toggle_class()"> .</div>');
+    });
+
+    $('#js_mataUltimoBloco').click(function(){
+      $(".js_marcado_para_morrer").last().remove();
+    });
+
+    $('#js_mataTudo').click(function(){
+      $(".js_marcado_para_morrer").remove();
+    });
+
+  </script>
+</html>
