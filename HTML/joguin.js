@@ -1,5 +1,5 @@
-var dataInicial = new Date();
-var INTERVALO = 2000;
+var INTERVALO = 1000;
+var score = 0;
 
 $(window).keydown(function(event){
   if(event.which == 39)
@@ -9,15 +9,60 @@ $(window).keydown(function(event){
     $("#js_nave").css('left', "-=5px");
 
   if(event.which == 32){
-    if($("#js_nave").css('left') - $("js_posicao1").css('left') < '40px' ) // parse somehow
+    var posicaoNave = pegaCssLeft("#js_nave");
+    $('body').append(' <div class="tiro"> </div>');
+    $('.tiro').css("left", $('#js_nave').css('left'));
+    if(posicaoNave < 120 && posicaoNave > 80 ){
+      alert($('.posicao_horizontal1').length()*5);
+      score += $('.posicao_horizontal1').length()*5;
+      $('.posicao_horizontal1').remove();
+    }
+    if(posicaoNave < 220 && posicaoNave > 180 ){
+      score += $('.posicao_horizontal1').length()*5;
+      $('.posicao_horizontal2').remove();
+    }
+    if(posicaoNave < 320 && posicaoNave > 280 ){
+      score += $('.posicao_horizontal1').length()*5;
+      $('.posicao_horizontal3').remove();
+    }
+    if(posicaoNave < 420 && posicaoNave > 380 ){
+      score += $('.posicao_horizontal1').length()*5;
+      $('.posicao_horizontal4').remove();
+    }
+    if(posicaoNave < 520 && posicaoNave > 480 ){
+      score += $('.posicao_horizontal1').length()*5;
+      $('.posicao_horizontal5').remove();
+    }
+
+
+    setTimeout(limpaTiro, 200);
   }
 });
 
+function pegaCssLeft(string){
+  return parseInt(/(\d+)/.exec($(string).css('left')), 10);
+}
 
+var limpaTiro = function(){
+  $('.tiro').remove();
+};
+
+
+function setScore(){
+  $('#js_score').html = 'Score: ' + score;
+}
 
 var blocoSpawn = setInterval(function(){
-  //if($('#js_posicao5').children().is('div'))
-    //alert("Game Over");
+  if($('#js_posicao5').children().is('div')){
+    alert("Game Over");
+
+    $('.posicao_horizontal1').remove();
+    $('.posicao_horizontal2').remove();
+    $('.posicao_horizontal3').remove();
+    $('.posicao_horizontal4').remove();
+    $('.posicao_horizontal5').remove();
+  }
+
   $('#js_posicao5').children().remove();
 
   $('#js_posicao5').append($('#js_posicao4').children());
