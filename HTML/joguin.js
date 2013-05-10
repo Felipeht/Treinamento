@@ -1,9 +1,10 @@
 var INTERVALO = 1000;
 var score = 0;
 var teclasPressionadas = [];
-var TECLASDEMOVIMENTO = [37,39,32]
+var TECLASDEMOVIMENTO = [74,75,76,65,83,68] // j k l   a s d 
 var numTiros = 0;
-var temMunicao = true;
+var temMunicao1 = true;
+var temMunicao2 = true;
 var tempo = 0;
 
 $(window).keydown(function(event){
@@ -14,8 +15,10 @@ $(window).keydown(function(event){
 });
 
 $(window).keyup(function(event){
-  if(event.which==32)
-    temMunicao = true;
+  if(event.which==75)
+    temMunicao1 = true;
+  if(event.which==83)
+    temMunicao1 = true;
   var index = teclasPressionadas.indexOf(event.which);
   if(index!=-1)
     teclasPressionadas.splice(index,1);
@@ -23,18 +26,38 @@ $(window).keyup(function(event){
 
 var executaTeclasPressionadas = setInterval(function(){
   for(var tecla in teclasPressionadas){
-    if(teclasPressionadas[tecla] == 37){
-      $("#js_nave").css('left', "-=5px");
+    if(teclasPressionadas[tecla] == 74){
+      $("#js_nave1").css('left', "-=5px");
     }
 
-    if(teclasPressionadas[tecla] == 39){
-      $("#js_nave").css('left', "+=5px");
+    if(teclasPressionadas[tecla] == 76){
+      $("#js_nave1").css('left', "+=5px");
     }
 
-    if(teclasPressionadas[tecla] == 32  && temMunicao == true){
-      var posicaoNave = pegaCssLeft("#js_nave");
+    if(teclasPressionadas[tecla] == 65){
+      $("#js_nave2").css('left', "-=5px");
+    }
+
+    if(teclasPressionadas[tecla] == 68){
+      $("#js_nave2").css('left', "+=5px");
+    }
+
+    if( (teclasPressionadas[tecla] == 75 || teclasPressionadas[tecla] == 83 )  && temMunicao1 == true){
+      var numeroDaNave;
+      if(teclasPressionadas[tecla]==75){
+        numeroDaNave = 1;
+        temMunicao1 = false;
+      }
+      else{
+        numeroDaNave = 2;
+        temMunicao2 = false;
+      }
+      
+      var posicaoNave = pegaCssLeft("#js_nave"+numeroDaNave);
       $('body').append(' <div id="js_tiroNumero'+numTiros%10+'" class="tiro"> </div>');
-      $('.tiro').css("left", $('#js_nave').css('left'));
+      $(".tiro").css("left", $('#js_nave'+numeroDaNave).css('left'));
+
+
       if(posicaoNave < 120 && posicaoNave > 80 ){
         score += $('.posicao_horizontal1').length*5;
         $('.posicao_horizontal1').remove();
@@ -56,10 +79,9 @@ var executaTeclasPressionadas = setInterval(function(){
         $('.posicao_horizontal5').remove();
       }
       setScore();
-      temMunicao=false;
       setTimeout(function(){
         limpaTiro(numTiros%10)
-      }, 200);
+      }, 100);
     }
   }
 },50)
@@ -130,7 +152,7 @@ function blocoSpawn(){
   var posicao_horizontal = Math.floor(Math.random()*5 + 1)
   $('#js_posicao1').append('<div class="bloco_ameacador posicao_horizontal'+posicao_horizontal+'" > </div>');
 
-  INTERVALO = Math.ceil(INTERVALO*0.99);
+  INTERVALO = Math.ceil(INTERVALO*0.95);
 
   setTimeout(blocoSpawn,INTERVALO);
 }

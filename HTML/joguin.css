@@ -41,11 +41,20 @@
   margin-top: 0px;
 }
 
-.nave {
+.nave1 {
   height: 40px;
   width: 40px;
   border-radius: 40px;
   background-color: black;
+  position: relative;
+  left: 300px;
+}
+
+.nave2 {
+  height: 40px;
+  width: 40px;
+  border-radius: 40px;
+  background-color: blue;
   position: relative;
   left: 300px;
 }
