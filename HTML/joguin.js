@@ -13,28 +13,27 @@ $(window).keydown(function(event){
     $('body').append(' <div class="tiro"> </div>');
     $('.tiro').css("left", $('#js_nave').css('left'));
     if(posicaoNave < 120 && posicaoNave > 80 ){
-      alert($('.posicao_horizontal1').length()*5);
-      score += $('.posicao_horizontal1').length()*5;
+      score += $('.posicao_horizontal1').length*5;
       $('.posicao_horizontal1').remove();
     }
     if(posicaoNave < 220 && posicaoNave > 180 ){
-      score += $('.posicao_horizontal1').length()*5;
+      score += $('.posicao_horizontal2').length*5;
       $('.posicao_horizontal2').remove();
     }
     if(posicaoNave < 320 && posicaoNave > 280 ){
-      score += $('.posicao_horizontal1').length()*5;
+      score += $('.posicao_horizontal3').length*5;
       $('.posicao_horizontal3').remove();
     }
     if(posicaoNave < 420 && posicaoNave > 380 ){
-      score += $('.posicao_horizontal1').length()*5;
+      score += $('.posicao_horizontal4').length*5;
       $('.posicao_horizontal4').remove();
     }
     if(posicaoNave < 520 && posicaoNave > 480 ){
-      score += $('.posicao_horizontal1').length()*5;
+      score += $('.posicao_horizontal5').length*5;
       $('.posicao_horizontal5').remove();
+
     }
-
-
+    setScore();
     setTimeout(limpaTiro, 200);
   }
 });
@@ -49,12 +48,14 @@ var limpaTiro = function(){
 
 
 function setScore(){
-  $('#js_score').html = 'Score: ' + score;
+  $('#js_score').html(score);
 }
 
 var blocoSpawn = setInterval(function(){
   if($('#js_posicao5').children().is('div')){
-    alert("Game Over");
+    //alert("Game Over");
+    score = 0;
+    setScore();
 
     $('.posicao_horizontal1').remove();
     $('.posicao_horizontal2').remove();
