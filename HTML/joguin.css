@@ -30,7 +30,7 @@
   position: absolute;
   background-color: yellow;
   width: 3px;
-  height: 90%;
+  height: 85%;
   margin-left: 27px;
 }
 
@@ -38,7 +38,7 @@
 .posicao {
   height: 50px;
   width: 1000px;
-  margin-top: 50px;
+  margin-top: 0px;
 }
 
 .nave {
@@ -47,7 +47,7 @@
   border-radius: 40px;
   background-color: black;
   position: relative;
-  left: 10px;
+  left: 300px;
 }
 
 .score{
