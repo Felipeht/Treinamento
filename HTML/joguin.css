@@ -62,5 +62,18 @@
   border-radius: 10px;
   background-color: rgba(200,200,200,0.5);
   text-align: center;
+}
 
+.high_score{
+  position: absolute;
+  line-height: 50px;
+  left: 900px;
+  top: 100px;
+  height: 300px;
+  width: 300px;
+  border-style: solid;
+  border-width: 2px;
+  border-radius: 10px;
+  background-color: rgba(200,200,200,0.5);
+  text-align: center;
 }

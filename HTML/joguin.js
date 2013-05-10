@@ -4,6 +4,7 @@ var teclasPressionadas = [];
 var TECLASDEMOVIMENTO = [37,39,32]
 var numTiros = 0;
 var temMunicao = true;
+var tempo = 0;
 
 $(window).keydown(function(event){
   if(teclasPressionadas.indexOf(event.which)==-1 && 
@@ -76,12 +77,20 @@ function setScore(){
   $('#js_score').html(score);
 }
 
-var blocoSpawn = setInterval(function(){
+function setTempoMais1(){
+  $('#js_tempo').html(++tempo);
+}
+
+function blocoSpawn(){
   if($('#js_posicao10').children().is('div')){
     //alert("Game Over");
+    $('#js_highScore').append('<p>Score : '+score+'&nbsp;&nbsp;&nbsp; Tempo : '+tempo);
+
     score = 0;
+    tempo = 0;
     setScore();
 
+    INTERVALO = 1000;
     $('.posicao_horizontal1').remove();
     $('.posicao_horizontal2').remove();
     $('.posicao_horizontal3').remove();
@@ -120,7 +129,12 @@ var blocoSpawn = setInterval(function(){
 
   var posicao_horizontal = Math.floor(Math.random()*5 + 1)
   $('#js_posicao1').append('<div class="bloco_ameacador posicao_horizontal'+posicao_horizontal+'" > </div>');
-}, INTERVALO);
 
+  INTERVALO = Math.ceil(INTERVALO*0.99);
 
+  setTimeout(blocoSpawn,INTERVALO);
+}
 
+setTimeout(blocoSpawn,INTERVALO);
+
+setInterval(setTempoMais1,1000);
