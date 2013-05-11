@@ -152,7 +152,7 @@ function blocoSpawn(){
   var posicao_horizontal = Math.floor(Math.random()*5 + 1)
   $('#js_posicao1').append('<div class="bloco_ameacador posicao_horizontal'+posicao_horizontal+'" > </div>');
 
-  INTERVALO = Math.ceil(INTERVALO*0.95);
+  INTERVALO = Math.ceil(INTERVALO*0.99);
 
   setTimeout(blocoSpawn,INTERVALO);
 }

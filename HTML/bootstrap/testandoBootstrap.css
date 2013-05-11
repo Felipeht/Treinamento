@@ -1,0 +1,46 @@
+header {
+  text-align: center;
+  height: 100px;
+  background-color: #003300;
+}
+
+.item_lista_horizontal {
+  display: inline;
+  line-height: 50px;
+  color: white;
+}
+
+.lista_horizontal {
+  text-align: center;
+  height: 50px;
+  background-color: #CCCCCC;
+  margin-bottom: 0px;
+}
+
+.main_wrapper {
+  background-color: orange;
+}
+
+.menu_vertical {
+  text-align: center;
+  height: 300px;
+  background-color: black;
+  color: white;
+}
+
+.lista_vertical {
+  height: 100px;
+  vertical-align: bottom;
+}
+
+.conteudo {
+  text-align: center;
+  height: 300px;
+  background-color: #AAAAAA;
+}
+
+.copyright {
+  text-align: center;
+  height: 50px;
+  background-color: #CCCCCC;
+}
