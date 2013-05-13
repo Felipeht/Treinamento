@@ -4,42 +4,58 @@
   <link href="bootstrap/css/bootstrap.css" rel="stylesheet">
   <link href="testandoBootstrap.css" rel="stylesheet">
 </head>
+
 <body>
   <div class="container">
 
     <div class="row">
-      <header class="span12"> Header here </header>
+      <header class="span12"> <h1 class="header_text">Header here</h1></header>
     </div>
   
-    <div class="row menu_horizontal" >
-      <ul class="lista_horizontal span12">
-        <li class="item_lista_horizontal"><a href="">Link 1</a></li>
-        <li class="item_lista_horizontal"><a href="">Link 2</a></li>
-        <li class="item_lista_horizontal"><a href="">Link 3</a></li>
-        <li class="item_lista_horizontal"><a href="">Link 4</a></li>
-      </ul>
+    <div class="row" >
+      <div class="span12 menu_horizontal">
+
+        <ul class="lista_horizontal">
+          <li class="item_lista_horizontal"><a class="btn" href="">Link 1</a></li>
+          <li class="item_lista_horizontal"><a class="btn" href="">Link 2</a></li>
+          <li class="item_lista_horizontal"><a class="btn" href="">Link 3</a></li>
+          <li class="item_lista_horizontal"><a class="btn" href="">Link 4</a></li>
+        </ul>
+      </div>
     </div>
 
     <div class="row">
-      
-      <div class="menu_vertical span4">
-        <ul class="lista_vertical">
-          <li>Link 1</li>
-          <li>Link 2</li>
-          <li>Link 3</li>
-          <li>Link 4</li>
-        </ul>
-      </div>
+      <div class="span16 conteudo_background">
+        <div class="row">
 
-      <div class="conteudo span8">
-        <p class="texto_filler"> YAY YAY</p>
-      </div>
+          <div class="menu_vertical span4">
+            <h4 class="titulo_lista_vertical"> More links</h4>
+            <ul class="lista_vertical">
+              <a class="btn btn-link item_lista_vertical" href="">Link 1</a></li>
+              <a class="btn btn-link item_lista_vertical" href="">Link 2</a></li>
+              <a class="btn btn-link item_lista_vertical" href="">Link 3</a></li>
+              <a class="btn btn-link item_lista_vertical" href="">Link 4</a></li>
+            </ul>
+          </div>
 
-      
+          <div class="conteudo span8">
+            <p class="texto_filler"> YAY YAY</p>
+          </div>
+
+        </div>
+      </div>
     </div>
 
-    <div class="row footer"><p class="copyright span12">Copyright LAH BLAH BLAH</p></div>
+    <div class="row">
+      <div class="span12 footer">
+        <p class="copyright">Copyright LAH BLAH BLAH</p>
+      </div>
+    </div>
+
+
   </div>
+
+  
 
 </body>
 

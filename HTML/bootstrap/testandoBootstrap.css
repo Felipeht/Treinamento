@@ -4,17 +4,23 @@ header {
   background-color: #003300;
 }
 
+.header_text{
+  margin-top: 30px;
+
+}
+
 .item_lista_horizontal {
   display: inline;
-  line-height: 50px;
   color: white;
+  margin-right: 10px;
+  margin-left: 10px;
 }
 
 .lista_horizontal {
   text-align: center;
-  height: 50px;
-  background-color: #CCCCCC;
   margin-bottom: 0px;
+  margin-top: 10px;
+  margin-left: 0px;
 }
 
 .main_wrapper {
@@ -23,24 +29,56 @@ header {
 
 .menu_vertical {
   text-align: center;
-  height: 300px;
+  height: 500px;
   background-color: black;
   color: white;
 }
 
+.titulo_lista_vertical{
+  margin-top: 50px;
+}
+
 .lista_vertical {
-  height: 100px;
-  vertical-align: bottom;
+  margin-top: 20px;
+  margin-left: 0px;
+  margin-right: 0px;
+}
+
+.item_lista_vertical{
+  display: block;
+  margin-bottom: 20px;
+  border-top-width: 2px;
+  border-bottom-width: 2px;
+  border-style: solid;
+  border-color: rgb(20,20,20);
+}
+
+.conteudo_background{
+  background-color: #AAAAAA;
 }
 
 .conteudo {
   text-align: center;
-  height: 300px;
+  height: 500px;
   background-color: #AAAAAA;
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+  padding: 20px;
+}
+
+.footer{
+  height: 50px;
+  background-color: #CCCCCC;
 }
 
 .copyright {
+  margin-top: 15px;
   text-align: center;
-  height: 50px;
+  
+}
+
+.menu_horizontal{
   background-color: #CCCCCC;
+  height: 50px;
 }
