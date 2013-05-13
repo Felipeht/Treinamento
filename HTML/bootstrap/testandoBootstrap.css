@@ -58,7 +58,7 @@ header {
 }
 
 .conteudo {
-  text-align: center;
+  
   height: 500px;
   background-color: #AAAAAA;
   -webkit-box-sizing: border-box;
@@ -81,4 +81,8 @@ header {
 .menu_horizontal{
   background-color: #CCCCCC;
   height: 50px;
+}
+
+input[type="checkbox"]{
+  margin-top: 0px;
 }
